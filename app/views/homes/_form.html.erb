@@ -1,0 +1,29 @@
+<%= form_for @home do |f| %>
+	<div class="container">
+        <div class="panel-body">
+          <!-- FORM -->
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Nombre			    </label>
+              <div class="col-sm-9">
+                <%= f.text_field :nombre, :class => "form-control", :placeholder => "Nombre"%>
+		   </div>
+		<label class="col-sm-3 control-label">Ubicacion			    </label>
+              <div class="col-sm-9">
+                <%= f.text_field :ubicacion, :class => "form-control", :placeholder => "Ubicacion"%>
+		   </div>
+          <label class="col-sm-3 control-label">Disponibilidad			    </label>
+              <div class="col-sm-9">
+                <%= f.text_field :disponibilidad, :class => "form-control", :placeholder => "Disponibilidad"%>
+		   </div>
+	    </form>
+	</div>
+		<div class="form-group last">
+	     <div class="col-sm-offset-3 col-sm-9">
+		   <%= f.submit 'Guardar',:class => "btn btn-default"%>
+		</div>
+		</div>
+	</div>
+<% end %>
+
+
