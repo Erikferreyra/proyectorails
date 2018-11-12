@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112202649) do
+ActiveRecord::Schema.define(version: 20181112212313) do
 
   create_table "adms", force: :cascade do |t|
     t.string "usuario"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20181112202649) do
     t.string "disponibilidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "nombre"
+    t.date "fecha_ini"
+    t.integer "home_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_reservations_on_home_id"
   end
 
   create_table "subasta", force: :cascade do |t|
