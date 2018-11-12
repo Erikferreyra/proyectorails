@@ -4,7 +4,7 @@ class CreateSubasta < ActiveRecord::Migration[5.1]
       t.date :fechainicio
       t.text :descripcion
       t.string :titulo
-      t.integer :idreserva
+      
       t.integer :idganador
       t.integer :pujamax
       t.references :reservation, index: true 
