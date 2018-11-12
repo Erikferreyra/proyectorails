@@ -5,7 +5,7 @@ class HomesController < ApplicationController
   def update
   	@home=Home.find(params[:id])
      if @home.update(params.require(:home).permit(:nombre))
-  		redirect_to adm_path
+  		redirect_to homes_path
      else
 		render :edit
 	end	
@@ -16,7 +16,7 @@ class HomesController < ApplicationController
   def create
  	@home=Home.new(params.require(:home).permit(:nombre,:ubicacion,:disponibilidad))
  	if @home.save
- 		redirect_to adm_path
+ 		redirect_to homes_path
  	else
  		render :new
  	end
@@ -35,9 +35,9 @@ class HomesController < ApplicationController
   def destroy
 	@home=Home.find(params[:id])
   	if @home.destroy
-		redirect_to adm_path
+		redirect_to homes_path
 	else
-		redirect_to adm_path
+		redirect_to homes_path
  	end 
  end
 end

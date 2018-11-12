@@ -1,1 +1,5 @@
-jejrjrjjr
+<% @homes.each do |home| %>
+	<% @subastas.each do |subasta| %>
+		<%= render home.nombre, titulo: subasta %>
+	 <%end%>
+<%end%>
