@@ -24,7 +24,10 @@ Residences List</h3>
 					<th>Nombre</th>
 					<th>Ubicacion</th>
 					<th>Disponibilidad</th>
-				</tr>		
+          <th>Descripcion</th>
+          <th>Cantidad habitaciones</th>
+          <th></th>
+				</tr>
 				<% @homes.each do |home| %>
 					<tr>
 						<td><%= home.nombre%></td>
@@ -32,11 +35,13 @@ Residences List</h3>
 						<%= home.ubicacion%>
 						</td>
 						<td><%= home.disponibilidad%></td>
+            <td><%= home.descripcion %> </td>
+            <td><%= home.canthabitacion %> </td>
 						<td><%= link_to "Edit",edit_home_path(home),class: "btn btn-default"%>
 						<%= link_to "Delet",home,method: :delete,data:{confirm: "Estas seguro?"},class: "btn btn-default"%>
 						</td>
 					</tr>
-				<%end%>		
+				<%end%>
 				</table>
 			</div>
 		</div>
@@ -50,5 +55,3 @@ Residences List</h3>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-
