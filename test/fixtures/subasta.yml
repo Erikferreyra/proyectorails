@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fechainicio: 2018-11-08
+  descripcion: MyText
+  titulo: MyString
+  idreserva: 1
+  idganador: 1
+  pujamax: 1
+
+two:
+  fechainicio: 2018-11-08
+  descripcion: MyText
+  titulo: MyString
+  idreserva: 1
+  idganador: 1
+  pujamax: 1

@@ -1,0 +1,28 @@
+body {
+   background: #f4f4f4;
+} 
+.navbar{
+	background-color: #000080;
+	min-height: 33px;
+	margin-bottom: 0;
+	border-radius: 0;
+}
+.navbar-nav > li > a, .navbar-brand{
+	padding-top: 6px;
+	padding-bottom: 0;
+	height: 33px;
+}
+
+
+
+.color-principal, .panel-default > .panel-heading{
+	background-color: #000080;
+	border-color: #eb6f31;
+	color: #fff;
+}
+.btn-default,
+.btn-default,hover,
+.btn-default,active{
+	background: #000080;
+	color: #fff;
+}
