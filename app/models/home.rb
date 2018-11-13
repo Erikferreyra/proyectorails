@@ -1,3 +1,3 @@
 class Home < ApplicationRecord
- has_one :reservations
+ has_one :reservation
 end
