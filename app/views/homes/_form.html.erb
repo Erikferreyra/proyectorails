@@ -4,18 +4,23 @@
           <!-- FORM -->
           <form class="form-horizontal" role="form">
             <div class="form-group">
-              <label class="col-sm-3 control-label">Nombre			    </label>
+              <label class="col-sm-3 control-label">Name			    </label>
               <div class="col-sm-9">
-                <%= f.text_field :nombre, :class => "form-control", :placeholder => "Nombre"%>
+                <%= f.text_field :nombre, :class => "form-control", :placeholder => "Insert Name"%>
 		   </div>
-		<label class="col-sm-3 control-label">Ubicacion			    </label>
-              <div class="col-sm-9">
-                <%= f.text_field :ubicacion, :class => "form-control", :placeholder => "Ubicacion"%>
-		   </div>
-          <label class="col-sm-3 control-label">Disponibilidad			    </label>
-              <div class="col-sm-9">
-                <%= f.text_field :disponibilidad, :class => "form-control", :placeholder => "Disponibilidad"%>
-		   </div>
+		<label class="col-sm-3 control-label">Location			    </label>
+        <div class="col-sm-9">
+          <%= f.text_field :ubicacion, :class => "form-control", :placeholder => "Insert Location"%>
+		   	</div>
+    <label class="col-sm-3 control-label">Available			    </label>
+        <div class="col-sm-9">
+          <%= f.text_field :disponibilidad, :class => "form-control", :placeholder => "True/false"%>
+		   	</div>
+
+			 <label class="col-sm-3 control-label">Number of rooms			    </label>
+											<div class="col-sm-9">
+												<%= f.number_field :canthabitacion, :class => "form-control", :placeholder => "Insert Number of rooms"%>
+							</div>
 	    </form>
 	</div>
 		<div class="form-group last">
@@ -25,5 +30,3 @@
 		</div>
 	</div>
 <% end %>
-
-
