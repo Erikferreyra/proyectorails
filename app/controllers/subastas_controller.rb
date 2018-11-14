@@ -1,32 +1,28 @@
 class SubastasController < ApplicationController
   def index
-  	 @residencia=Reservation.all
+  	 @reserva=Reservation.all
   	 @subastas=Subasta.all
-  	 @t=Time.new
-	 if @t.wday==2
-		 @residencia.each do |res| 	    
-	        create(res.nombre,res.id,@t)
+  	 t=Time.new
+	   if t.wday==2
+      f = Date.new t.year,t.month,t.day 
+		  @reserva.each do |res| 
+          res.fecha_ini= f >> 6
+          res.save  
+	        create(res.nombre,res.id,f)
 	     end
-	else
-		
-	end 
-  	 
-  
-        
+	   else
+		 end 
   end
-	 
-  
    def new 
     @subastas = Subasta.new
    end
 
-   def create(nombre,id,t)
-   	 #@resi = params[:resi]
-     @f = Date.new @t.year,@t.month,@t.day + 60
+   def create(nombre,id,f)
+   	 #@resi = params[:resi] 
      @subastas=Subasta.new
      @subastas.titulo = nombre
      @subastas.reservation_id = id
-     @subastas.fechainicio = @f  
+     @subastas.fechainicio = f 
      @subastas.save
  
    end

@@ -16,7 +16,9 @@ class HomesController < ApplicationController
   def create
  	@home=Home.new(params.require(:home).permit(:nombre,:ubicacion, :canthabitacion, :disponibilidad))
  	if @home.save
- 		redirect_to homes_path
+    redirect_to controller: 'reservations',action: 'create', nombre: @home.nombre, id: @home.id
+    #redirect_to url_for(action: 'create', nombre: @home.nombre,id: @home.id,controller: 'reservations')
+ 		#redirect_to homes_path
  	else
  		render :new
  	end
