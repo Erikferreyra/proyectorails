@@ -27,7 +27,6 @@ class HomesController < ApplicationController
   def default
 
   end
-
   def index
      @homes=Home.all
   end
