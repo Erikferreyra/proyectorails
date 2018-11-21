@@ -10,17 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112193331) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20181112212313) do
 
   create_table "adms", force: :cascade do |t|
-    t.string "nombre"
-    t.string "ubicacion"
-    t.integer "canthabitaciones"
-    t.boolean "disponibilidad"
-    t.text "descripcion"
+    t.string "usuario"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,17 +22,16 @@ ActiveRecord::Schema.define(version: 20181112193331) do
   create_table "homes", force: :cascade do |t|
     t.string "nombre"
     t.string "ubicacion"
-    t.integer "cant_habitaciones"
-    t.boolean "disponibilidad"
-    t.text "descripcion"
+    t.integer "canthabitacion"
+    t.string "disponibilidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
     t.string "nombre"
-    t.date "fecha_inicio"
-    t.bigint "home_id"
+    t.date "fecha_ini"
+    t.integer "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["home_id"], name: "index_reservations_on_home_id"
@@ -48,11 +41,12 @@ ActiveRecord::Schema.define(version: 20181112193331) do
     t.date "fechainicio"
     t.text "descripcion"
     t.string "titulo"
-    t.integer "idreserva"
-    t.integer "idganador"
+    t.integer "usuario_id"
     t.integer "pujamax"
+    t.integer "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_subasta_on_reservation_id"
   end
 
 end

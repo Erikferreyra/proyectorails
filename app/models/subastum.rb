@@ -1,0 +1,2 @@
+class Subastum < ApplicationRecord
+end
