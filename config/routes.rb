@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :reservations
   resources :subastas
   resources :homes
-  get 'adm',to: 'subastas#index'
+  get 'adm',to: 'homes#index'
   root 'main#index'
   #get 'create',to: 'subastas#create'
 
