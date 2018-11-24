@@ -23,7 +23,6 @@ List of residences</h3>
 				<tr>
 					<th>Name</th>
 					<th>Location</th>
-					<th>Available</th>
           <th>Number of rooms</th>
 				</tr>
 				<% @homes.each do |home| %>
@@ -32,8 +31,7 @@ List of residences</h3>
 						<td>
 						<%= home.ubicacion %>
 						</td>
-						<td><%= home.disponibilidad %></td>
-            <td><%= home.canthabitacion %></td>
+						<td><%= home.canthabitacion %></td>
 						<td><%= link_to "Edit",edit_home_path(home),class: "btn btn-default"%>
 						<%= link_to "Delet",home,method: :delete,data:{confirm: "Estas seguro?"},class: "btn btn-default"%>
 						</td>
@@ -44,4 +42,3 @@ List of residences</h3>
 		</div>
     </section>
     <%= link_to "New Residence",new_home_path,class: "btn btn-default"%>
-  
