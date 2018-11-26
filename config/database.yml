@@ -24,4 +24,4 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: my_databases_production
