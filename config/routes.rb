@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :subastas
   resources :homes
   get 'adm',to: 'adm#index'
-  root 'adm#index'
+  root 'homes#index'
+  #devise_scope :user do
+   #   root to: "devise/sessions#new"
+  #end
   #get 'create',to: 'subastas#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
