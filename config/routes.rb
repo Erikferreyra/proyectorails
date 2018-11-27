@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :reservations
-  resources :subastas
+  #resources :subastas
+  get 'subastas', to: 'subastas#index'
+  get '/photos/:id', to: 'subastas#show', as: 'subasta'
+
   resources :homes
 
   devise_scope :user do
