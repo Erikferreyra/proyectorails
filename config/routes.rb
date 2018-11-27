@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :reservations
   #resources :subastas
   get 'subastas', to: 'subastas#index'
-  get '/photos/:id', to: 'subastas#show', as: 'subasta'
+  get '/subastas/:id', to: 'subastas#show', as: 'subasta'
 
   resources :homes
 
