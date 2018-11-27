@@ -1,2 +1,0 @@
-class Adm < ApplicationRecord
-end

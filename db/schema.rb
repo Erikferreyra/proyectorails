@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181126230555) do
+ActiveRecord::Schema.define(version: 20181127035531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "adms", force: :cascade do |t|
-    t.string "usuario"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "homes", force: :cascade do |t|
     t.string "nombre"

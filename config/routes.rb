@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :reservations
   resources :subastas
   resources :homes
-  get 'adm',to: 'adm#index'
 
   devise_scope :user do
      root to: "devise/sessions#new"
