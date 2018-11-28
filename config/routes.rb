@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :subastas
   resources :homes
   get 'adm',to: 'adm#index'
-  root 'homes#index'
+  root 'main#index'
   #devise_scope :user do
    #   root to: "devise/sessions#new"
   #end
