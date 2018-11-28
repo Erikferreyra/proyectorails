@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20181127160112) do
     t.string "apellido"
     t.date "fechanac"
     t.boolean "tipousuario", default: false
-    t.integer "numtarjeta"
+    t.float "numtarjeta"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
