@@ -5,7 +5,6 @@ class SubastasController < ApplicationController
        @homes=Home.all
 	end
 
-
    def new
     @subasta = Subasta.new
    end
@@ -18,6 +17,6 @@ def create(nombre,id,t)
   @subasta=Subasta.new
   @subasta.titulo = nombre
   @subasta.reservation_id = id
-  @subasta.fechainicio = t 
+  @subasta.fechainicio = t
   @subasta.save
 end
