@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-  def edit
+  def edi
   	@home=Home.find(params[:id])
   end
   def update
