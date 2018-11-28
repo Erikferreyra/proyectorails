@@ -20,8 +20,7 @@
 
   <div class="field">
     <%= f.label :Birthdate%><br />
-    <%= f.date_field :fechanac, autofocus: true, autocomplete: "
-Birthdate" %>
+    <%= f.date_select :fechanac, start_year: 1908, end_year: 2000 %>
   </div>
 
   <div class="field">
