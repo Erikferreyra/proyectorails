@@ -22,7 +22,7 @@
           <tr>
             <th scope="row"><%= subasta.titulo%></th>
             <td><%= subasta.fechainicio%></td>
-            <% id_reserva = Reservation.find(subasta.reservation_id).id %>
+            <% id_reserva = Reservation.find(subasta.reservation_id).home_id %>
             <% h = Home.find(id_reserva) %>
             <td><%= h.nombre %> </td>
             <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
