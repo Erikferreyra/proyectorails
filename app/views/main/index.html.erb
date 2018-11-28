@@ -1,4 +1,6 @@
-<div class= "container">
+<div class="container">
+        <div class="navbar-header">
+        <div class= "container">
 <div class="p-3 mb-2 bg-primary text-white">
 <% if user_signed_in? %>
     <h1> Bienvenido <%= current_user.nombre %> </h1>
@@ -12,3 +14,6 @@
 <li><%= link_to "Sair",destroy_user_session_path, method: :delete %></li> 
 </ul>
 </div>
+
+
+
