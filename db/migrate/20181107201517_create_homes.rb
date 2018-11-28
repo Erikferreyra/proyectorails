@@ -6,5 +6,8 @@ class CreateHomes < ActiveRecord::Migration[5.1]
       t.integer :canthabitacion
       t.timestamps
     end
+
+    add_index :homes, :nombre, unique: true
+
   end
 end
