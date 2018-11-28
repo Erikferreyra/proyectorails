@@ -37,7 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 	 t.string :apellido
 	 t.date :fechanac
 	 t.boolean :tipousuario, :default => false     
-	 t.integer :numtarjeta
+	 t.fixnum :numtarjeta
       t.timestamps null: false
     end
 

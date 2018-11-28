@@ -33,9 +33,11 @@ Birthdate" %>
     <%= f.label :CardNumber %><br />
     <%= f.text_field :numtarjeta, autofocus: true, autocomplete: "CardNumber" %>
   </div>
-	 
+
+   <div class="field"> 
      <%= f.label :UserPremium%>
-     <%= f.check_box_tag "tipousuario",tipousuario %>
+     <%= f.check_box:tipousuario %>
+  </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
