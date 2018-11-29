@@ -1,19 +1,19 @@
 <%= form_for @home do |f| %>
 	<div class="form-group">
-		<%= f.label :nombre, 'Name' %>
-		<%= f.text_field :nombre, class: 'form-control', placeholder: 'Insert name', required: true %>
+		<%= f.label :nombre, 'Nombre' %>
+		<%= f.text_field :nombre, class: 'form-control', placeholder: 'Inserte el nombre de la residencia', required: true %>
 	</div>
 
 	<div class="form-group">
-		<%= f.label :ubicacion, 'Location' %>
-		<%= f.text_field :ubicacion, class: 'form-control', placeholder: 'Insert location', required: true %>
+		<%= f.label :ubicacion, 'Ubicacion' %>
+		<%= f.text_field :ubicacion, class: 'form-control', placeholder: 'Inserte ubicacion', required: true %>
 	</div>
 
 	<div class="form-group">
-		<%= f.label :canthabitacion, 'Number of rooms' %>
-		<%= f.number_field :canthabitacion, class: 'form-control', in:1..10, placeholder: 'Insert rooms(number)', required: true %>
+		<%= f.label :canthabitacion, 'Cantidad de habitaciones' %>
+		<%= f.number_field :canthabitacion, class: 'form-control', in:1..10, placeholder: 'Inserte numero de habitaciones', required: true %>
 	</div>
 
-	<button class="btn btn-primary" type="submit">Submit home</button>
+	<button class="btn btn-primary" type="submit">Guardar</button>
 
 <% end %>

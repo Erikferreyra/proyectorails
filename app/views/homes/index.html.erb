@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">AppAdmin</a>
+          <a class="navbar-brand" href="#">Applicacion para admin</a>
         </div>
       </div>
     </nav>
@@ -16,14 +16,14 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">
-List of residences</h3>
+Listado de residencias</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table table-striped table-hover">
 				<tr>
-					<th>Name</th>
-					<th>Location</th>
-          <th>Number of rooms</th>
+					<th>Nombre</th>
+					<th>Ubicacion</th>
+          <th>Cantidad de habitaciones</th>
 				</tr>
 				<% @homes.each do |home| %>
 					<tr>
@@ -32,8 +32,8 @@ List of residences</h3>
 						<%= home.ubicacion %>
 						</td>
 						<td><%= home.canthabitacion %></td>
-						<td><%= link_to "Edit",edit_home_path(home),class: "btn btn-default"%>
-						<%= link_to "Delet",home,method: :delete,data:{confirm: "Estas seguro?"},class: "btn btn-default"%>
+						<td><%= link_to "Editar",edit_home_path(home),class: "btn btn-default"%>
+						<%= link_to "Borrar",home,method: :delete,data:{confirm: "Estas seguro?"},class: "btn btn-default"%>
 						</td>
 					</tr>
 				<%end%>
@@ -41,4 +41,4 @@ List of residences</h3>
 			</div>
 		</div>
     </section>
-    <%= link_to "New Residence",new_home_path,class: "btn btn-default"%>
+    <%= link_to "Crear nueva residencia",new_home_path,class: "btn btn-default"%>
