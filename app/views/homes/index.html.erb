@@ -13,7 +13,7 @@
     </nav>
 
     <section id="main"
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">
 Listado de residencias</h3>
@@ -32,8 +32,8 @@ Listado de residencias</h3>
 						<%= home.ubicacion %>
 						</td>
 						<td><%= home.canthabitacion %></td>
-						<td><%= link_to "Editar",edit_home_path(home),class: "btn btn-default"%>
-						<%= link_to "Borrar",home,method: :delete,data:{confirm: "Estas seguro?"},class: "btn btn-default"%>
+						<td><%= link_to "Editar",edit_home_path(home),class: "btn btn-primary"%>
+						<%= link_to "Borrar",home,method: :delete,data:{confirm: "Estas seguro?"},class: "btn btn-primary"%>
 						</td>
 					</tr>
 				<%end%>
@@ -41,4 +41,5 @@ Listado de residencias</h3>
 			</div>
 		</div>
     </section>
-    <%= link_to "Crear nueva residencia",new_home_path,class: "btn btn-default"%>
+    <%= link_to "Crear nueva residencia",new_home_path,class: "btn btn-primary"%>
+    
