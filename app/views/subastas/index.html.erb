@@ -8,8 +8,8 @@
     <table class="table table-dark">
       <thead>
         <tr>
-          <th scope="col">Tittle</th>
-          <th scope="col">Reservation date</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Fecha de reserva</th>
         </tr>
       </thead>
 
@@ -17,7 +17,6 @@
       <tbody>
           <tr>
             <th scope="row"><%= subasta.titulo%></th>
-            <td><%= subasta.fechainicio%></td>
             <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
           </tr>
       </tbody>
