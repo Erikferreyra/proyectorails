@@ -2,13 +2,14 @@ class HomesController < ApplicationController
   def edit
   	@home=Home.find(params[:id])
   end
+
   def update
   	@home=Home.find(params[:id])
-     if @home.update(params.require(:home).permit(:nombre,:ubicacion, :canthabitacion, :disponibilidad))
-  		redirect_to homes_path
+     if @home.update(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion))
+  		   redirect_to homes_path
      else
-		render :edit
-	end
+		     render :edit, :error => "No pudo actualizarse la residencia"
+	   end
   end
 
 
@@ -18,7 +19,7 @@ class HomesController < ApplicationController
 
 
   def create
-   	@home=Home.new(params.require(:home).permit(:nombre,:ubicacion, :canthabitacion));
+   	@home=Home.new(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion));
 
     @homes = Home.all
     x = "no";
@@ -36,7 +37,7 @@ class HomesController < ApplicationController
          		render :new
         end
     else
-        redirect_to homes_path
+        redirect_to homes_path, :error => "El nombre de la residencia ya existe."
     end
 
   end
