@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20181203030244) do
 
   create_table "homes", force: :cascade do |t|
     t.string "nombre"
+    t.string "ubicacion"
     t.integer "canthabitacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
