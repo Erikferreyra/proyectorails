@@ -20,26 +20,11 @@ class HomesController < ApplicationController
 
   def create
    	@home=Home.new(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion));
-
-    @homes = Home.all
-    x = "no";
-
-    @homes.each do |h|
-      if (@home.nombre == h.nombre)
-        x = "si"
-      end
-    end
-
-    if (x == "no")
-        if @home.save
-            redirect_to controller: 'reservations',action: 'create', nombre: @home.nombre, id: @home.id
-        else
-         		render :new
-        end
+    if @home.save
+        redirect_to controller: 'reservations',action: 'index', nombre: @home.nombre, id: @home.id
     else
-        redirect_to homes_path, :error => "El nombre de la residencia ya existe."
+        render :new
     end
-
   end
 
   def default
