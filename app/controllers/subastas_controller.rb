@@ -1,9 +1,7 @@
 class SubastasController < ApplicationController
     def index
-    	 @reservas=Reservation.all
-    	 @subastas=Subasta.all
-       @homes=Home.all
-	end
+    	 @subastas=Subasta.order(params[:fechainicio])
+	  end
 
    def new
     @subasta = Subasta.new

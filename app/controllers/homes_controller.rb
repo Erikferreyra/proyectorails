@@ -19,10 +19,10 @@ class HomesController < ApplicationController
 
 
   def create
-   	@home=Home.new(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion));
-
     @homes = Home.all
     x = "no";
+
+   	@home=Home.new(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion));
 
     @homes.each do |h|
       if (@home.nombre == h.nombre)
@@ -32,14 +32,15 @@ class HomesController < ApplicationController
 
     if (x == "no")
         if @home.save
-            redirect_to controller: 'reservations',action: 'create', nombre: @home.nombre, id: @home.id
+            redirect_to controller: 'reservations', action: 'create', nombre: @home.nombre, id: @home.id, :success => "Residencia creada."
         else
          		render :new
         end
     else
-        redirect_to homes_path, :error => "El nombre de la residencia ya existe."
+        ######################PREGUNTAR############################
+        #flash[:error] = "mensaje"
+        render :new
     end
-
   end
 
   def default
