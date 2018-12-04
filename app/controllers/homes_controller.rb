@@ -4,13 +4,29 @@ class HomesController < ApplicationController
   end
 
   def update
+    @homes = Home.all
+    x = "no";
+
   	@home=Home.find(params[:id])
-     if @home.update(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion))
-  		   redirect_to homes_path
-     else
-		     render :edit, :error => "No pudo actualizarse la residencia"
-	   end
+    
+    #
+    @homes.each do |h|
+      if (@home.nombre == h.nombre)
+        x = "si"
+      end
+    end
+
+    if (x == "no")
+        if @home.update(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion))
+           redirect_to homes_path, :notice => "Se actualizó la residencia."
+        else
+           render :edit, :notice => "No pudo actualizarse la residencia."
+        end
+    else
+        redirect_to homes_path, :alert => "No se pudo editar la residencia. El nombre de la residencia ya está en uso."
+    end
   end
+
 
 
   def new
@@ -37,9 +53,7 @@ class HomesController < ApplicationController
          		render :new
         end
     else
-        ######################PREGUNTAR############################
-        #flash[:error] = "mensaje"
-        render :new
+      redirect_to homes_path, :alert => "No se pudo crear la residencia. El nombre de la residencia ya está en uso."
     end
   end
 
