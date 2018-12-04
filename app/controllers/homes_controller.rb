@@ -7,15 +7,18 @@ class HomesController < ApplicationController
     @homes = Home.all
     x = "no";
 
-  	@home=Home.find(params[:id])
-    
-    #
-    @homes.each do |h|
-      if (@home.nombre == h.nombre)
+  	@home = Home.find(params[:id])
+    nombre_salvado = @home.nombre #salvo el nombre
+
+    @home.nombre = "fail" #le modifico el nombre
+
+    @homes.each do |h| #reviso si existe (exceptuando a la misma)
+      if (nombre_salvado == h.nombre)
         x = "si"
       end
     end
 
+    @home.nombre = nombre_salvado #se lo vuelvo a poner
     if (x == "no")
         if @home.update(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion))
            redirect_to homes_path, :notice => "Se actualizó la residencia."
