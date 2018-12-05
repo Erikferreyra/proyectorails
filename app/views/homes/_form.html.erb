@@ -2,9 +2,6 @@
 	<div class="form-group">
 		<%= f.label :nombre, 'Nombre' %>
 		<%= f.text_field :nombre, class: 'form-control', placeholder: 'Inserte el nombre de la residencia', required: true %>
-		<%= if @home.errors[:nombre].any? %>
-			<%= @home.errors[:nombre].first %>
-		<%end%>
 	</div>
 
 	<div class="form-group">
