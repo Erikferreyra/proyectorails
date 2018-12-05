@@ -1,8 +1,8 @@
 namespace :tareas do
   desc "TODO"
   task crearsubastas: :environment do
-     t=Time.new
-
+    t=Time.new
+    if t.wday == 3
       @home = Home.all
       @home.each do |h|
         reserva=Reservation.new
@@ -25,6 +25,6 @@ namespace :tareas do
          @subasta.save
          #create(res.nombre,res.id,f)
       end
-   
+    end
   end
 end
