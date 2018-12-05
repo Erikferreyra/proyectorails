@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20181203030244) do
     t.datetime "updated_at", null: false
     t.string "ciudad"
     t.string "direccion"
-    t.index ["nombre"], name: "index_homes_on_nombre", unique: true
   end
 
   create_table "reservations", force: :cascade do |t|
