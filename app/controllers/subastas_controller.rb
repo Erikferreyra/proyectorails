@@ -18,5 +18,5 @@ def create(nombre,id,t)
   @subasta.titulo = nombre
   @subasta.reservation_id = id
   @subasta.fechainicio = t
-  @subasta.save
+  @subasta.save 
 end

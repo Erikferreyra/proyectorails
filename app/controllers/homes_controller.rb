@@ -24,7 +24,7 @@ class HomesController < ApplicationController
         render: index
         ##redirect_to controller: 'reservations',action: 'index', nombre: @home.nombre, id: @home.id
     else
-        render :new
+        render :new 
     end
   end
 
