@@ -1,6 +1,7 @@
+<p class="alert"><%= alert %></p>
 <%= if @home.erros.any? %>
 	<div class="alert">
-	<p> El nombre de la residencia ya exite </p>
+		<p> El nombre de la residencia ya exite </p>
 	</div>	
 <%end%>
 <%= form_for @home do |f| %>
