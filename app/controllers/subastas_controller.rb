@@ -1,6 +1,6 @@
 class SubastasController < ApplicationController
     def index
-    	 @subastas=Subasta.order(params[:fechainicio])
+    	 @subastas=Subasta.order(fechainicio: :desc)
 	  end
 
    def new
