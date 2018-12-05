@@ -21,10 +21,10 @@ class HomesController < ApplicationController
   def create
    	@home=Home.new(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion));
     if @home.save
-        render: index
-        ##redirect_to controller: 'reservations',action: 'index', nombre: @home.nombre, id: @home.id
+
+        redirect_to controller: 'reservations',action: 'index', nombre: @home.nombre, id: @home.id
     else
-        render :new 
+        render :new
     end
   end
 
