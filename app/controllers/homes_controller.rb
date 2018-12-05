@@ -41,7 +41,7 @@ class HomesController < ApplicationController
 
   def destroy
      @home=Home.find(params[:id])
-     if @home.reservation
+     if @home.reservation == false 
        if @home.destroy
 		     redirect_to homes_path
 	      else
