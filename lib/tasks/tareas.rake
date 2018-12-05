@@ -3,7 +3,11 @@ namespace :tareas do
   task crearsubastas: :environment do
       @home = Home.all
       @home.each do |h|
-          redirect_to controller: 'reservations',action: 'index', nombre: h.nombre, id: h.id
+        reserva=Reservation.new
+        reserva.nombre = h.nombre
+        reserva.home_id = h.id
+        reserva.save
+          #redirect_to controller: 'reservations',action: 'index', nombre: h.nombre, id: h.id
       end
       @reservas=Reservation.all
       @subastas=Subasta.all
