@@ -1,3 +1,8 @@
+<%= if @home.erros.any? %>
+	<div class="alert">
+	<p> El nombre de la residencia ya exite </p>
+	</div>	
+<%end%>
 <%= form_for @home do |f| %>
 	<div class="form-group">
 		<%= f.label :nombre, 'Nombre' %>
