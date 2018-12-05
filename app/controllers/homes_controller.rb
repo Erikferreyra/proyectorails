@@ -47,5 +47,5 @@ class HomesController < ApplicationController
 	      else
 		      redirect_to homes_path
  	    end
-    #end
   end
+end
