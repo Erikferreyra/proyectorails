@@ -2,7 +2,7 @@ namespace :tareas do
   desc "TODO"
   task crearsubastas: :environment do
      t=Time.new
-    if t.day == 4 
+    if t.day == 3 
       @home = Home.all
       @home.each do |h|
         reserva=Reservation.new
