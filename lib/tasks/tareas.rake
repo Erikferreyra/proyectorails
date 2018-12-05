@@ -4,7 +4,9 @@ namespace :tareas do
    t = Time.new
    if  t.day = 3
       @home = Home.all
-      redirect_to controller: 'reservations',action: 'index', nombre: @home.nombre, id: @home.id
+      @home.each do |h|
+          redirect_to controller: 'reservations',action: 'index', nombre: h.nombre, id: h.id
+      end
       @reservas=Reservation.all
       @subastas=Subasta.all
       #t=Time.new

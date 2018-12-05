@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
 		nombre = params[:nombre]
 		id = params[:id]
 		create(nombre,id)
-	    redirect_to url_for(action: 'index',controller: 'homes')
+	    
 	end
 
 	def create(a,b)
