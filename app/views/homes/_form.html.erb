@@ -1,4 +1,7 @@
 <%= form_for @home do |f| %>
+	<% @home.errors.full_messages.each do |message| %>
+		<%= message %>
+	<% end %>
 	<div class="form-group">
 		<%= f.label :nombre, 'Nombre' %>
 		<%= f.text_field :nombre, class: 'form-control', placeholder: 'Inserte el nombre de la residencia', required: true %>
