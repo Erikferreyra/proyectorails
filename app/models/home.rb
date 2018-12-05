@@ -3,3 +3,5 @@ class Home < ApplicationRecord
  validates :nombre, :ubicacion, :canthabitacion, presence: true 
  validates :nombre, uniqueness: true
 end
+
+
