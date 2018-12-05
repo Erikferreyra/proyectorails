@@ -4,29 +4,14 @@ class HomesController < ApplicationController
   end
 
   def update
-    @homes = Home.all
-    x = "no";
+    @homes = Home.all #lista de residencias
 
   	@home = Home.find(params[:id])
-    nombre_salvado = @home.nombre #salvo el nombre
 
-    @home.nombre = "fail" #le modifico el nombre
-
-    @homes.each do |h| #reviso si existe (exceptuando a la misma)
-      if (nombre_salvado == h.nombre)
-        x = "si"
-      end
-    end
-
-    @home.nombre = nombre_salvado #se lo vuelvo a poner
-    if (x == "no")
-        if @home.update(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion))
-           redirect_to homes_path, :notice => "Se actualizó la residencia."
-        else
-           render :edit, :notice => "No pudo actualizarse la residencia."
-        end
+    if @home.update(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion))
+       redirect_to homes_path, :notice => "Se actualizó la residencia."
     else
-        redirect_to homes_path, :alert => "No se pudo editar la residencia. El nombre de la residencia ya está en uso."
+       redirect_to edit_home_path, :notice => "No pudo actualizarse la residencia. El nombre de la residencia ya está en uso."
     end
   end
 
@@ -39,24 +24,13 @@ class HomesController < ApplicationController
 
   def create
     @homes = Home.all
-    x = "no";
 
    	@home=Home.new(params.require(:home).permit(:nombre,:canthabitacion,:ciudad,:direccion));
 
-    @homes.each do |h|
-      if (@home.nombre == h.nombre)
-        x = "si"
-      end
-    end
-
-    if (x == "no")
-        if @home.save
-            redirect_to controller: 'reservations', action: 'create', nombre: @home.nombre, id: @home.id, :success => "Residencia creada."
-        else
-         		render :new
-        end
+    if @home.save
+        redirect_to controller: 'reservations', action: 'create', nombre: @home.nombre, id: @home.id, :success => "Residencia creada."
     else
-      redirect_to homes_path, :alert => "No se pudo crear la residencia. El nombre de la residencia ya está en uso."
+     		redirect_to new_home_path, :notice => "El nombre de la residencia ya está en uso."
     end
   end
 
