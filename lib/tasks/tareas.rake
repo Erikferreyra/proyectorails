@@ -2,7 +2,7 @@ namespace :tareas do
   desc "TODO"
   task crearsubastas: :environment do
    t = Time.new
-   if  t.day = 3
+   if  t.day == 3
       @home = Home.all
       @home.each do |h|
           redirect_to controller: 'reservations',action: 'index', nombre: h.nombre, id: h.id
