@@ -1,4 +1,4 @@
 class Subasta < ApplicationRecord
   has_many :reservation
-  validates :reservation_id, uniqueness: true
+  validates :reservation_id, uniqueness:true
 end
