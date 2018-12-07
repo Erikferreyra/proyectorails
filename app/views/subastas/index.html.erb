@@ -1,25 +1,49 @@
+<% if user_signed_in? %>
+    <% if current_user.try(:tipousuario?) %>
+      <div class="container-fluid">
+      <div class="p-3 mb-2 bg-primary text-white">
+          <h1> Listado de subastas </h1>
+      </div>
 
-
-<div class="container-fluid">
-  <div class="p-3 mb-2 bg-dark text-white">
-      <h1>Listado de subastas</h1>
-  </div>
-
-    <table class="table table-dark">
-      <thead>
+      <table class="table table-dark">
+        <thead>
         <tr>
           <th scope="col">Titulo</th>
           <th scope="col">Fecha de reserva</th>
+          <th scope="col">Estado</th>
         </tr>
       </thead>
 
-      <% @subastas.each do |subasta| %>
-      <tbody>
-          <tr>
-            <th scope="row"><%= subasta.titulo%></th>
-            <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
-          </tr>
-      </tbody>
-      <% end %>   
-    </table>
-</div>
+          <% @subastas.each do |subasta| %>
+            <% fechafin = subasta.fechainicio %>
+            <% fechafin += 3 %>
+            <% if (Date.today > fechafin) %>
+            <tbody>
+                <tr>
+                  <th scope="row"><%= subasta.titulo %></th>
+
+                  <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
+
+                  <td>
+                    <% if subasta.fechainicio > Date.today %>
+                      <%= "Comienza: #{subasta.fechainicio}" %>
+                      <a href="/homes" class="btn btn-success" role="button"> La quiero! </button>
+                    <% else %>
+                      <%= "Ya iniciada" %> <br>
+                      <%="Finaliza: #{subasta.fechainicio + 3.days}" %> <br>
+                      <a href="/homes" class="btn btn-success" role="button"> Pujar </button>
+
+                    <%end%>
+                  </td>
+                </tr>
+            </tbody>
+            <%end%>
+          <% end %>
+        </table>
+    </div>
+    <%end%>
+<%else%>
+    <script type="text/javascript">
+      window.location.href="/users/sign_in"
+    </script>
+<%end%>

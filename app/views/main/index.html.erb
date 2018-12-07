@@ -3,17 +3,14 @@
         <div class= "container">
 <div class="p-3 mb-2 bg-primary text-white">
 <% if user_signed_in? %>
-    <h1> Bienvenido <%= current_user.nombre %> </h1>
+    <h1> Bienvenido <%= current_user.nombre %>! </h1>
 </div>
     <ul>
- 	<li><%= link_to "Edit", edit_user_registration_path %></li>
-	<li><%= link_to "Subastas", subastas_path %></li>
+ 	<li><%= link_to "Editar usuario.", edit_user_registration_path %></li>
+	<li><%= link_to "Ver el listado de subastas.", subastas_path %></li>
     </ul>
 <% end %>
 <ul>
-<li><%= link_to "Sair",destroy_user_session_path, method: :delete %></li> 
+<li><%= link_to "Cerrar sesión.",destroy_user_session_path, method: :delete %></li>
 </ul>
 </div>
-
-
-
