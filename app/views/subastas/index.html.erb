@@ -18,7 +18,7 @@
           <% @subastas.each do |subasta| %>
             <% fechafin = subasta.fechainicio %>
             <% fechafin += 3 %>
-            <% if (Date.today > fechafin) %>
+            <% if (Date.today <= fechafin) %>
             <tbody>
                 <tr>
                   <th scope="row"><%= subasta.titulo %></th>
@@ -28,7 +28,7 @@
 
                   <td>
                     <% if subasta.fechainicio > Date.today %>
-                      <%= "Comienza: #{subasta.fechainicio}" %>
+                      <%= "Comienza: #{subasta.fechainicio}" %><br>
                       <a href="/homes" class="btn btn-success" role="button"> La quiero! </button>
                     <% else %>
                       <%= "Ya iniciada" %> <br>
@@ -43,6 +43,7 @@
           <% end %>
         </table>
     </div>
+    <td><%= link_to "Volver",:back,class: "btn btn-primary"%>
     <%else%>
     <div class="container-fluid">
     <div class="p-3 mb-2 bg-primary text-white">
@@ -62,7 +63,7 @@
         <% @subastas.each do |subasta| %>
           <% fechafin = subasta.fechainicio %>
           <% fechafin += 3 %>
-          <% if (Date.today > fechafin) %>
+          <% if (Date.today <= fechafin) %>
           <tbody>
               <tr>
                 <th scope="row"><%= subasta.titulo %></th>
@@ -71,7 +72,7 @@
                 <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
                 <td>
                   <% if subasta.fechainicio > Date.today %>
-                    <%= "Comienza: #{subasta.fechainicio}" %>
+                    <%= "Comienza: #{subasta.fechainicio}" %> <br>
                     <a href="/homes" class="btn btn-success" role="button"> Quiero ser premium! </button>
 
                   <% else %>
@@ -86,7 +87,7 @@
         <% end %>
       </table>
   </div>
-  <%end%>
+  <td><%= link_to "Volver",:back,class: "btn btn-primary"%>  <%end%>
 <%else%>
     <script type="text/javascript">
       window.location.href="/users/sign_in"

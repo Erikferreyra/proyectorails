@@ -48,5 +48,8 @@ Listado de residencias</h3>
     <%= link_to "Crear nueva residencia",new_home_path,class: "btn btn-primary"%>
 
 <%else%>
-No sos admin.
+<div class="alert alert-danger" role="alert">
+Debes tener derechos de administrador para acceder a esta página web! <br>
+<td><%= link_to "Volver",:back,class: "btn btn-primary"%>
+</div>
 <%end%>
