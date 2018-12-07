@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181127160112) do
+ActiveRecord::Schema.define(version: 20181206155123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20181127160112) do
 
   create_table "homes", force: :cascade do |t|
     t.string "nombre"
-    t.string "ubicacion"
     t.integer "canthabitacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ciudad"
+    t.string "direccion"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -57,13 +58,17 @@ ActiveRecord::Schema.define(version: 20181127160112) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "premium", default: false
     t.string "nombre"
     t.string "apellido"
     t.date "fechanac"
-    t.boolean "tipousuario", default: false
-    t.float "numtarjeta"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "numtarjeta"
+    t.string "titulartarjeta"
+    t.date "fechavenc"
+    t.integer "cvv"
+    t.string "tipotarjeta"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

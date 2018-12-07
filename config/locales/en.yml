@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        numtarjeta: "Card number"
+      # will translate User attribute "login" as "Handle"
+

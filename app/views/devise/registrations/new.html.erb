@@ -1,58 +1,75 @@
 <div class="container">
   <!-- Content here -->
-  <div class="p-3 mb-2 bg-primary text-white">
-  <h1>New User</h1>
+  <div class="be-blue white">
+  <h1>Nuevo Usuario</h1>
   </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
   <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :nombre, autofocus: true, autocomplete: "Name" %>
+    <%= f.label :Nombre %><br />
+    <%= f.text_field :nombre, autofocus: true, autocomplete: "Nombre" %>
   </div>
 
    <div class="field">
-    <%= f.label :Surname %><br />
-    <%= f.text_field :apellido, autofocus: true, autocomplete: "Surname" %>
-  </div>
-
-
-
-  <div class="field">
-    <%= f.label :Birthdate%><br />
-    <%= f.date_select :fechanac, start_year: 1908, end_year: 2000 %>
+    <%= f.label :Apellido %><br />
+    <%= f.text_field :apellido, autofocus: true, autocomplete: "Apellido" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :Fecha_de_nacimiento%><br />
+    <%= f.date_select :fechanac, start_year: 1900%>
   </div>
 
   <div class="field">
-    <%= f.label :CardNumber %><br />
-    <%= f.text_field :numtarjeta, autofocus: true, autocomplete: "CardNumber" %>
+    <%= f.label :Correo_electronico %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "Correo electronico" %>
   </div>
 
- <div class="box">
- <%= label_tag :tipousuario, "User Premium" %>    
- <%= f.check_box :tipousuario %>
-</div>
+  <div class="field">
+    <%= f.label :Numero_de_tarjeta %><br />
+    <%= f.text_field :numtarjeta, autofocus: true, autocomplete: "Numero de tarjeta" %>
+  </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <% tipos = {''=>'','Visa'=>'visa','Mastercard'=>'m'} %>
+    <fieldset>
+        <% lista = tipos.sort %>
+        <%= f.select :tipotarjeta, lista %>
+    </fieldset>
+  </div>
+
+  <div class="field">
+    <%= f.label :Titular_de_tarjeta %><br />
+    <%= f.text_field :titulartarjeta, autofocus: true, autocomplete: "Titular de tarjeta" %>
+  </div>
+   
+  <div class="field">
+    <%= f.label :Fecha_de_vencimiento_de_la_tarjeta%><br />
+    <%= f.date_select :fechavenc%>
+  </div>
+
+  <div class="field">
+    <%= f.label :CVV %><br />
+    <%= f.password_field :cvv,autofocus: true, autocomplete: "Clave de seguridad de la tarjeta" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :Contraseña %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "Contraseña" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :Confirmacion_contraseña %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "Repita contraseña" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Registrar" %>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>

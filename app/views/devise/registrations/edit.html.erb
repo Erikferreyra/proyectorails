@@ -1,49 +1,65 @@
 <div class="container">
   <!-- Content here -->
-<div class="p-3 mb-2 bg-primary text-white">
+<div class="be-blue white">
 <h1>Edit User</h1>
 </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :nombre, autofocus: true, autocomplete: "Name" %>
+    <%= f.label :Nombre %><br />
+    <%= f.text_field :nombre, autofocus: true, autocomplete: "Nombre" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :Apellido %><br />
+    <%= f.text_field :apellido, autofocus: true, autocomplete: "Apellido" %>
   </div>
 
   <div class="field">
-    <%= f.label :Surname %><br />
-    <%= f.text_field :apellido, autofocus: true, autocomplete: "Surname" %>
-  </div>
-
-
-
-  <div class="field">
-    <%= f.label :Birthdate%><br />
-    <%= f.date_select :fechanac, start_year: 1908, end_year: 2000 %>
+    <%= f.label :Fecha_de_nacimiento%><br />
+    <%= f.date_field :fechanac%>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :Correo_electronico %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "Correo electronico" %>
   </div>
 
   <div class="field">
-    <%= f.label :CardNumber %><br />
-    <%= f.text_field :numtarjeta, autofocus: true, autocomplete: "CardNumber" %>
+    <%= f.label :Numero_de_tarjeta %><br />
+    <%= f.text_field :numtarjeta, autofocus: true, autocomplete: "Numero de tarjeta" %>
   </div>
 
-   <div class="field"> 
-     <%= f.label :UserPremium%>
-     <%= f.check_box:tipousuario %>
+  <div class="field">
+    <% tipos = {'Visa'=>'visa','Mastercard'=>'m'} %>
+    <fieldset>
+        <% lista = tipos.sort %>
+        <%= f.select :tipotarjeta, lista %>
+    </fieldset>
+  </div>
+  
+  <div class="field">
+    <%= f.label :Titular_de_tarjeta %><br />
+    <%= f.text_field :titulartarjeta, autofocus: true, autocomplete: "Titular de tarjeta" %>
+  </div>
+   
+  <div class="field">
+    <%= f.label :Fecha_de_vencimiento_de_la_tarjeta%><br />
+    <%= f.date_field :fechavenc%>
+  </div>
+
+  <div class="field">
+    <%= f.label :Clave_de_seguridad_de_la_tarjeta %><br />
+    <%= f.password_field :cvv,autofocus: true, autocomplete: "Clave de seguridad de la tarjeta" %>
   </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :Contraseña_nueva %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "Contraseña Nueva" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -51,23 +67,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :Confirmar_nueva_contraseña %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "Repita contraseña" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label :Contraseña_actual %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "Contraseña actual" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Actualizar Datos" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Borrar cuenta</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Borrar cuenta", registration_path(resource_name), data: { confirm: "Estas seguro que quieres elimar la cuenta?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Volver", :back %>
 </div>

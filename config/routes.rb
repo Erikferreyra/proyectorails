@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:update]
   resources :reservations
   resources :subastas
   resources :homes
-  get 'adm',to: 'adm#index'
+  get 'adm',to: 'adms#index'
   root 'main#index'
   #devise_scope :user do
    #   root to: "devise/sessions#new"

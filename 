@@ -1,0 +1,46 @@
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{0}: reset: moving to HEAD
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{1}: reset: moving to HEAD
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{2}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{3}: reset: moving to 73a096e
+[33mc65c77b[m[33m ([m[1;31morigin/ag1[m[33m)[m HEAD@{4}: reset: moving to c65c77b
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{5}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{6}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{7}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{8}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{9}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{10}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{11}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{12}: reset: moving to 73a096e
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{13}: reset: moving to 73a096e
+[33mb295fdd[m[33m ([m[1;31mheroku/master[m[33m)[m HEAD@{14}: checkout: moving from registro_usuarios to master
+[33m88f77bd[m[33m ([m[1;31morigin/registro_usuarios[m[33m, [m[1;32mregistro_usuarios[m[33m)[m HEAD@{15}: commit: usuarios,modificacion residencia y traduccion a español
+[33mb295fdd[m[33m ([m[1;31mheroku/master[m[33m)[m HEAD@{16}: checkout: moving from master to registro_usuarios
+[33mb295fdd[m[33m ([m[1;31mheroku/master[m[33m)[m HEAD@{17}: commit: actualizacion
+[33mcd3e576[m HEAD@{18}: commit: actualizacion
+[33mb05d95b[m HEAD@{19}: commit: actualizacion
+[33mdd6d847[m HEAD@{20}: commit: actualizacion
+[33ma460421[m HEAD@{21}: commit: actualizacion
+[33mec130ec[m HEAD@{22}: commit: actualizacion
+[33m8f192b2[m HEAD@{23}: commit: actualizacion
+[33m679104d[m HEAD@{24}: commit: actualizacion
+[33mbd71db4[m HEAD@{25}: commit: actualizacion
+[33m0cd0c21[m HEAD@{26}: commit: actualizacion
+[33m361e24f[m HEAD@{27}: commit: actualizacion
+[33m5c1fb64[m HEAD@{28}: commit: actualizacion
+[33m6da0e4d[m HEAD@{29}: commit: actualizacion
+[33m1d61ea3[m HEAD@{30}: commit: actualizacion
+[33m9bbb31f[m HEAD@{31}: commit: actualizacion
+[33mf3741e3[m HEAD@{32}: commit: actualizacion
+[33maab3ee5[m HEAD@{33}: commit: actualizacion
+[33mbf4212d[m HEAD@{34}: commit: actualizacion
+[33m7b942f1[m HEAD@{35}: commit: actualizacion
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{36}: checkout: moving from raparacion_subasta to master
+[33m6cc8e6f[m[33m ([m[1;32mraparacion_subasta[m[33m)[m HEAD@{37}: commit: actualizacion
+[33mc07be9f[m HEAD@{38}: commit: Reparacion subastas
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{39}: checkout: moving from ag1 to raparacion_subasta
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{40}: checkout: moving from master to ag1
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{41}: merge reparacion_subasta: Fast-forward
+[33m4a2a19e[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{42}: checkout: moving from reparacion_subasta to master
+[33m73a096e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mag1[m[33m)[m HEAD@{43}: pull heroku master: Fast-forward
+[33m4a2a19e[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{44}: checkout: moving from master to reparacion_subasta
+[33m4a2a19e[m[33m ([m[1;31morigin/master[m[33m)[m HEAD@{45}: initial pull
