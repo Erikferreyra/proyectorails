@@ -31,10 +31,11 @@
                       <%= "Comienza: #{subasta.fechainicio}" %><br>
                       <a href="/homes" class="btn btn-success" role="button"> La quiero! </button>
                     <% else %>
-                      <%= "Ya iniciada. . Puja Actual: $#{subasta.pujamax}" %> <br>
+                      <%if !subasta.try(:adjudicada?) %>
+                      <%= "Ya iniciada! Puja Actual: $#{subasta.pujamax}" %> <br>
                       <%="Finaliza: #{subasta.fechainicio + 3.days}" %> <br>
                       <a href="/homes" class="btn btn-success" role="button"> Pujar </button>
-
+                      <%end%>
                     <%end%>
                   </td>
                 </tr>
