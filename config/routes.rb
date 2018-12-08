@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :reservations
+  put '/reservations/:id', to: 'reservations#update', as: 'reservation_update'
   resources :subastas
   resources :homes
   get 'adm',to: 'adm#index'
   root 'main#index'
+  get '/confirmar/:id', to: 'confirmation#show', as: 'confirm'
   #devise_scope :user do
    #   root to: "devise/sessions#new"
   #end

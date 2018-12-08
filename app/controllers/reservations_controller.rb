@@ -11,6 +11,15 @@ class ReservationsController < ApplicationController
 	     reserva.nombre = a
 	     reserva.home_id = b
 	     reserva.save
-  	end
+  end
 
+	def update
+		@reserva = Reservation.find(params[:id])
+
+		if @reserva.update(adjudicada:true, id_adjudicado:current_user)
+			redirect_to user_update_path
+		else
+			redirect_to subastas_path, :notice => "No se pudo"
+		end
+	end
 end

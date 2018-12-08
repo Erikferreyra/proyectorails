@@ -29,7 +29,7 @@
                   <td>
                     <% if subasta.fechainicio > Date.today %>
                       <%= "Comienza: #{subasta.fechainicio}" %><br>
-                      <a href="/homes" class="btn btn-success" role="button"> La quiero! </button>
+                      <td><%= link_to "Adjudicar!",confirm_path(Reservation.find(subasta.reservation_id)),class: "btn btn-success"%>
                     <% else %>
                       <%if !subasta.try(:adjudicada?) %>
                       <%= "Ya iniciada! Puja Actual: $#{subasta.pujamax}" %> <br>

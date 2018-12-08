@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="p-3 mb-2 bg-info text-white">
+    <h1>Estás a punto de reservar una residencia.
+    </h1>
+  </div>
+  <br>
+  Residencia que estoy reservando: <%=Home.find(@reserva.home_id).nombre%>  <br>
+
+  Creditos disponibles: <%= current_user.creditos %> <br>
+
+  Fecha de la reserva: <%=  @reserva.fecha_ini %> <br>
+
+  <p class="text-danger">Reservar esta residencia le costará 1(un) crédito.</p> <br>
+
+  <%= link_to "Volver", :back, class: "btn btn-primary"%>
+  <% if current_user.creditos > 0 %>
+    <%= link_to "Confirmar",homes_path,:data => {:confirm => 'Estas seguro?'}, class: "btn btn-success"%>
+  <% else %>
+    <%= link_to "Confirmar",:back, :data => {:confirm => 'No dispones de creditos.'}, class: "btn btn-success" %>
+  <%end%>
+</div>

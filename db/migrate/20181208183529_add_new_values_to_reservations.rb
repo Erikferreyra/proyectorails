@@ -1,5 +1,5 @@
 class AddNewValuesToReservations < ActiveRecord::Migration[5.1]
   def change
-    add_column :reservations, :adjudicada, :boolean, default: false
+    add_column :reservations, :id_adjudicado, :integer
   end
 end
