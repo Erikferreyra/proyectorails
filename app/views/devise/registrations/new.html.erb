@@ -33,10 +33,9 @@
 
   <div class="field">
     <% tipos = {''=>'','Visa'=>'visa','Mastercard'=>'m'} %>
-    <fieldset>
+        <%= f.label :Tipo_tarjeta %><br />
         <% lista = tipos.sort %>
         <%= f.select :tipotarjeta, lista %>
-    </fieldset>
   </div>
 
   <div class="field">

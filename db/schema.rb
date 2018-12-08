@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181206155123) do
+ActiveRecord::Schema.define(version: 20181208141002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,20 @@ ActiveRecord::Schema.define(version: 20181206155123) do
     t.string "direccion"
   end
 
+  create_table "hot_sales", force: :cascade do |t|
+    t.bigint "reservation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_hot_sales_on_reservation_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.string "nombre"
     t.date "fecha_ini"
     t.bigint "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "adjudicada", default: false
     t.index ["home_id"], name: "index_reservations_on_home_id"
   end
 
