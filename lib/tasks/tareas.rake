@@ -8,7 +8,6 @@ namespace :tareas do
     @reservas.each do |res|
     
         res.fecha_ini= f >> 6
-        #res.save
         @subasta=Subasta.new
         @subasta.titulo = res.nombre
         @subasta.reservation_id = res.id

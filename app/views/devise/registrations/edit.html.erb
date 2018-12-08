@@ -52,6 +52,7 @@
     <%= f.label :Clave_de_seguridad_de_la_tarjeta %><br />
     <%= f.password_field :cvv,autofocus: true, autocomplete: "Clave de seguridad de la tarjeta" %>
   </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
