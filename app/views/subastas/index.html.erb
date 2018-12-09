@@ -18,7 +18,7 @@
           <% @subastas.each do |subasta| %>
             <% fechafin = subasta.fechainicio %>
             <% fechafin += 3 %>
-            <% if (Date.today <= fechafin) %>
+            <% if (Date.today <= fechafin) && (!Reservation.find(subasta.reservation_id).try(:adjudicada?))%>
             <tbody>
                 <tr>
                   <th scope="row"><%= subasta.titulo %></th>
@@ -31,11 +31,9 @@
                       <%= "Comienza: #{subasta.fechainicio}" %><br>
                       <td><%= link_to "Adjudicarme la reserva",confirm_path(Reservation.find(subasta.reservation_id)),class: "btn btn-success"%>
                     <% else %>
-                      <%if !subasta.try(:adjudicada?) %>
                       <%= "Ya iniciada! Puja Actual: $#{subasta.pujamax}" %> <br>
                       <%="Finaliza: #{subasta.fechainicio + 3.days}" %> <br>
                       <a href="/homes" class="btn btn-success" role="button"> Pujar </button>
-                      <%end%>
                     <%end%>
                   </td>
                 </tr>

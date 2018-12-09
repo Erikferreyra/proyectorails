@@ -17,11 +17,10 @@ class ReservationsController < ApplicationController
     @reserva=Reservation.find(params[:id])
 
     @user = current_user
-    @user.creditos -= 1
-
+		@user.creditos -= 1
 
     if (@reserva.update reserva_params) && (@user.save)
-      redirect_to subastas_path, notice: "Se adjudico la reserva"
+      redirect_to subastas_path, notice: "Se adjudico la reserva. Creditos restantes: #{@user.creditos}"
     else
       redirect_to subastas_path, notice: "No se pudo adjudicar la reserva"
     end
