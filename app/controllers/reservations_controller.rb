@@ -14,12 +14,20 @@ class ReservationsController < ApplicationController
   end
 
 	def update
-		@reserva = Reservation.find(params[:id])
+    @reserva=Reservation.find(params[:id])
 
-		if @reserva.update(adjudicada:true, id_adjudicado:current_user)
-			redirect_to user_update_path
-		else
-			redirect_to subastas_path, :notice => "No se pudo"
-		end
-	end
+    @user = current_user
+    @user.creditos -= 1
+
+
+    if (@reserva.update reserva_params) && (@user.save)
+      redirect_to subastas_path, notice: "Se adjudico la reserva"
+    else
+      redirect_to subastas_path, notice: "No se pudo adjudicar la reserva"
+    end
+  end
+
+  def reserva_params
+    params.require(:reservation).permit(:adjudicada, :id_adjudicado)
+  end
 end

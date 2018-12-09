@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'adm',to: 'adm#index'
   root 'main#index'
   get '/confirmar/:id', to: 'confirmation#show', as: 'confirm'
+  post '/confirmar/:id', to: 'confirmation#update', as: 'adjudicar'
+
   #devise_scope :user do
    #   root to: "devise/sessions#new"
   #end

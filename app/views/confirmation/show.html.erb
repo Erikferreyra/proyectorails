@@ -14,7 +14,13 @@
 
   <%= link_to "Volver", :back, class: "btn btn-primary"%>
   <% if current_user.creditos > 0 %>
-    <%= link_to "Confirmar",homes_path,:data => {:confirm => 'Estas seguro?'}, class: "btn btn-success"%>
+
+    <%= form_for @reserva do |r| %>
+      <%= r.hidden_field :adjudicada, value: true %>
+      <%= r.hidden_field :id_adjudicado, value: current_user.id %>
+      <%= r.submit "Adjudicarme la reserva" %>
+    <%end%>
+
   <% else %>
     <%= link_to "Confirmar",:back, :data => {:confirm => 'No dispones de creditos.'}, class: "btn btn-success" %>
   <%end%>
