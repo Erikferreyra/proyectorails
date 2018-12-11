@@ -1,0 +1,84 @@
+
+<%= form_tag search_index_path , method: :get  do %>
+  <p aling= "center" <%= text_field_tag :search, params[:search] , placeholder: "Que estas buscando" %>
+  <%= submit_tag "buscar" ,class: "btn btn-primary" %>
+  <br></br>
+  <%= label_tag :Fecha_de_inicio %>
+  <%= date_field_tag :f_ini, params[:f_ini] , start_year: Date.today.year, :default => nil  %>
+  <%= label_tag :Fecha_de_fin %>
+  <%= date_field_tag :f_fin, params[:f_fin] , start_year: Date.today.year , :default => nil %>
+<% end %>
+
+<br> </br>
+
+<br> </br>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Applicacion para admin</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="main"
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+Listado de reservas</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped table-hover">
+				<tr>
+					<th>Fecha</th>
+					<th>Nombre</th>
+          <th>Estado de subasta</th>
+				</tr>
+
+          <% if (@fi != nil ) %>
+            <% @h.each do |home| %>
+              <% @res = home.reservations %>
+              <% @res.each do |r| %>
+                 <% if ( r.fecha_ini >= @fi ) && ( r.fecha_ini <= @ff ) %>
+					<tr>
+						<td><%= r.fecha_ini %></td>
+						<td>
+						<%= r.nombre %>
+						</td>
+            <td> <% if r.adjudicada == false %>
+                  <% @subastas.each do |sub| %>
+                       <% if sub.reservation_id == r.id %>
+                           <% if sub.fechainicio > Date.today %>
+                                <%= "No iniciada" %>
+                               <-- la subasta no inicio y si soy premium puedo adjudicarmela -->
+                          <%else%>
+                              <% if ((sub.fechainicio + 3.day) < Date.today  ) %>
+                                    <%= "Subasta finalizada" %>
+                              <%else%>
+                                   <%= "Subasta en curso" %>
+                               <%end%>
+                         <%end%>
+                        <%end%>
+                  <%end%>
+                <%else%>
+                    <%= "adjudicada" %>
+                <%end%>
+            </td>
+
+						<td><%= link_to "Pujar",edit_home_path(home),class: "btn btn-primary"%>
+						<%= link_to "Adjudicar",home,method: :delete,data:{confirm: "Estas seguro?"},class: "btn btn-primary"%>
+						</td>
+					</tr>
+                <%end%>
+            <%end%>
+				  <%end%>
+         <%end%>
+				</table>
+			</div>
+		</div>
+    </section>

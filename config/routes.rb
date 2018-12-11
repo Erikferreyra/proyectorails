@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'search/create'
+  get 'search/index'
+
   devise_for :users
   resources :reservations
   resources :subastas
