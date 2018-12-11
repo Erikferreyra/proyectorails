@@ -2,7 +2,7 @@ class AuctionsController < ApplicationController
     def index
     	 @subastas=Auction.order(fechainicio: :desc)
 
-       
+
        @h = Home.where(["nombre LIKE ?", "%#{params[:search]}%"])
        if params[:f_ini] != nil
          @fi = params[:f_ini].to_date
@@ -23,10 +23,14 @@ class AuctionsController < ApplicationController
       if(@user.creditos <= 0)
         redirect_to auctions_path, alert: "No dispones de creditos!"
       else
-        if (@subasta.update subasta_params)
-            redirect_to auctions_path, notice: "Se realizó la puja. Si gana la subasta, se le descontará un crédito. Buena suerte!"
+        if (@subasta.id_postor != @user.id)
+          if(@subasta.update subasta_params)
+              redirect_to auctions_path, notice: "Se realizó la puja. Si gana la subasta, se le descontará un crédito. Buena suerte!"
+          else
+              redirect_to auctions_path, notice: "No se pudo adjudicar la reserva."
+          end
         else
-            redirect_to auctions_path, notice: "No se pudo adjudicar la reserva."
+          redirect_to auctions_path, notice: "Ya estas liderando la subasta."
         end
       end
     end
