@@ -33,7 +33,7 @@
                     <% else %>
                       <%= "Ya iniciada! Puja Actual: $#{subasta.pujamax}" %> <br>
                       <%="Finaliza: #{subasta.fechainicio + 3.days}" %> <br>
-                      <a href="/homes" class="btn btn-success" role="button"> Pujar </button>
+                      <td><%= link_to "Pujar",pujar_path(subasta.id),class: "btn btn-success"%>
                     <%end%>
                   </td>
                 </tr>
@@ -77,7 +77,7 @@
                   <% else %>
                     <%= "Ya iniciada" %> <br>
                     <%="Finaliza: #{subasta.fechainicio + 3.days}" %> <br>
-                    <a href="/homes" class="btn btn-success" role="button"> Pujar </button>
+                    <td><%= link_to "Pujar",pujar_path(subasta.id),class: "btn btn-success"%>
                   <%end%>
                 </td>
               </tr>

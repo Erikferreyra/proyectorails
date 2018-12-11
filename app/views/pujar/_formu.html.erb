@@ -1,0 +1,9 @@
+<%= form_for subasta_path do |f| %>
+  <div class="form-group">
+    <%= f.label :pujamax, 'Puja' %>
+    <%= f.text_field :pujamax, class: 'form-control', placeholder: 'Inserte la puja a realizar.', required: true, minvalue: "#{@subasta.pujamax}" %>
+  </div>
+
+  <%= f.hidden_field :id_postor, value: current_user.id %>
+  <%= f.submit "Pujar", class: "btn btn-success" %>
+<%end%>

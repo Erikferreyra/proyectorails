@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="p-3 mb-2 bg-info text-white">
+    <h1>Estás a punto de pujar por una residencia.
+    </h1>
+  </div>
+  <br>
+  <% @reserva= Reservation.find(@subasta.reservation_id) %>
+  Residencia en cuestion: <%=Home.find(@reserva.home_id).nombre%>  <br>
+
+  Creditos disponibles: <%= current_user.creditos %> <br>
+
+  Fecha de la reserva: <%=  @reserva.fecha_ini %> <br>
+
+  <p class="text-danger">Para pujar por esta residencia debe disponer de al menos 1 crédito.</p> <br>
+
+  <%= link_to "Volver", :back, class: "btn btn-primary"%>
+
+  <%= render "formu" %>
