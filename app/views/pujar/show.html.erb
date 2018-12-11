@@ -13,6 +13,7 @@
 
   <p class="text-danger">Para pujar por esta residencia debe disponer de al menos 1 crédito.</p> <br>
 
-  <%= link_to "Volver", :back, class: "btn btn-primary"%>
+  Puja máxima actual: <%=@subasta.pujamax %>
 
   <%= render "formu" %>
+  <%= link_to "Volver", :back, class: "btn btn-primary"%>

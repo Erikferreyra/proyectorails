@@ -19,14 +19,14 @@ class ReservationsController < ApplicationController
     @user = current_user
 
 		if(@user.creditos <= 0)
-			redirect_to subastas_path, alert: "No dispones de creditos!"
+			redirect_to auctions_path, alert: "No dispones de creditos!"
 		else
 			@user.creditos -= 1
 
-	    if (@reserva.update reserva_params) && (@user.save) && (@user.try(:tipousuario?))
-	      redirect_to subastas_path, notice: "Se adjudico la reserva. Creditos restantes: #{@user.creditos}"
+	    if ((@reserva.update reserva_params) && (@user.save) && (@user.try(:tipousuario?)))
+	      redirect_to auctions_path, notice: "Se adjudico la reserva. Creditos restantes: #{@user.creditos}"
 	    else
-	      redirect_to subastas_path, notice: "No se pudo adjudicar la reserva"
+	      redirect_to auctions_path, notice: "No se pudo adjudicar la reserva"
 	    end
 		end
   end

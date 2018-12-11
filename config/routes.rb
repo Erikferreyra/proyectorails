@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   resources :reservations
   put '/reservations/:id', to: 'reservations#update', as: 'reservation_update'
-  resources :subastas
+  resources :auctions
   resources :homes
   get 'adm',to: 'adm#index'
   root 'main#index'
   get '/confirmar/:id', to: 'confirmation#show', as: 'confirm'
-  post '/confirmar/:id', to: 'confirmation#show', as: 'adjudicar'
+  post '/confirmar/:id', to: 'reservations#update', as: 'adjudicar'
   get '/pujar/:id', to: 'pujar#show', as: 'pujar'
-  post '/pujar/:id', to: 'pujar#show', as: 'post_pujar'
+  post '/pujar/:id', to: 'auctions#update', as: 'post_pujar'
   #devise_scope :user do
    #   root to: "devise/sessions#new"
   #end

@@ -16,10 +16,10 @@
       <%= link_to "Volver", :back, class: "btn btn-primary"%>
 
           <%= form_for @reserva do |r| %>
-          <%= r.hidden_field :adjudicada, value: true %>
-          <%= r.hidden_field :id_adjudicado, value: current_user.id %>
-          <%= r.submit "Adjudicarme la reserva", class: "btn btn-success" %>
-        <%end%>
+            <%= r.hidden_field :adjudicada, value: true %>
+            <%= r.hidden_field :id_adjudicado, value: current_user.id %>
+            <%= r.submit "Adjudicarme la reserva", class: "btn btn-success" %>
+          <%end%>
 
 <% else %>
 

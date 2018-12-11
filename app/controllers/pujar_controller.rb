@@ -1,6 +1,6 @@
 class PujarController < ApplicationController
   def show
-    @subasta = Subasta.find(params[:id])
+    @subasta = Auction.find(params[:id])
   end
 
 end
