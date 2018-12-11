@@ -1,7 +1,7 @@
 <%= form_for @subasta do |f| %>
   <div class="form-group">
     <%= f.label :pujamax, 'Pujar:' %>
-    <%= f.number_field :pujamax, class: 'form-control',min: @subasta.pujamax - 1, placeholder: 'Inserte su puja', required: true %>
+    <%= f.number_field :pujamax, class: 'form-control',min: @subasta.pujamax + 1, placeholder: 'Inserte su puja', required: true %>
   </div>
 
   <%= f.hidden_field :id_postor, value: current_user.id %>

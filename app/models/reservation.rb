@@ -1,4 +1,4 @@
 class Reservation < ApplicationRecord
- belongs_to :homes
- belongs_to :subasta, required: false
+ has_many :homes
+ belongs_to :auction, required: false
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/confirmar/:id', to: 'reservations#update', as: 'adjudicar'
   get '/pujar/:id', to: 'pujar#show', as: 'pujar'
   post '/pujar/:id', to: 'auctions#update', as: 'post_pujar'
+  
   #devise_scope :user do
    #   root to: "devise/sessions#new"
   #end
