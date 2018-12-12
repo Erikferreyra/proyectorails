@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181211201214) do
+ActiveRecord::Schema.define(version: 20181212013147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20181211201214) do
     t.text "descripcion"
     t.string "titulo"
     t.integer "usuario_id"
-    t.integer "pujamax"
     t.bigint "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "id_postor"
+    t.integer "pujamax", default: 0
     t.index ["reservation_id"], name: "index_auctions_on_reservation_id"
   end
 
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20181211201214) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "adjudicada", default: false
-    t.integer "id_adjudicado", require: false
+    t.integer "id_adjudicado"
     t.index ["home_id"], name: "index_reservations_on_home_id"
   end
 
