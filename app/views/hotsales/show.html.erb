@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="p-3 mb-2 bg-dark text-white">
+      <h1>Hot-Sale</h1>
+  </div>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+       	  <th scope="col">Nombre Residencia</th>
+          <th scope="col">Cantidad de habitaciones</th>
+          <th scope="col">Ciudad</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Precio del Hot-Sale</th>
+          <th scope="col">Fecha de inicio reserva</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+          	<% h=Home.find(@hotsale.reservation.home_id)%>
+            <td><%=h.nombre%></td>
+            <td><%=h.canthabitacion%></td>
+            <td><%=h.ciudad%></td>
+            <td><%=h.direccion%></td>
+            <td><%= @hotsale.precio%></td>
+            <td><%=@hotsale.reservation.fecha_ini%></td>
+            <td><%= link_to "Lo quiero",confirmation_index_path(:id => @hotsale.reservation_id),class: "btn btn-success"%></td>
+          </tr>
+      </tbody>  
+    </table>
+</div>
+
+

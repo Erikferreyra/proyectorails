@@ -1,0 +1,31 @@
+<% if current_user.try(:premium(?) %>
+    <div class="container-fluid">
+      <div class="p-3 mb-2 bg-info text-white">
+        <h1>Estás a punto de reservar una residencia.
+        </h1>
+      </div>
+      <br>
+      Residencia que estoy reservando: <%=Home.find(@reserva.home_id).nombre%>  <br>
+
+      Creditos disponibles: <%= current_user.creditos %> <br>
+
+      Fecha de la reserva: <%=  @reserva.fecha_ini %> <br>
+
+      <p class="text-danger">Reservar esta residencia le costará 1(un) crédito.</p> <br>
+
+      <%= link_to "Volver", :back, class: "btn btn-primary"%>
+
+          <%= form_for @reserva do |r| %>
+          <%= r.hidden_field :adjudicada, value: true %>
+          <%= r.hidden_field :id_adjudicado, value: current_user.id %>
+          <%= r.submit "Adjudicarme la reserva", class: "btn btn-success" %>
+        <%end%>
+
+<% else %>
+
+  Solo para usuarios premium.
+
+<%end%>
+</div>
+
+)

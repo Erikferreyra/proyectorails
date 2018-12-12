@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20181208141002) do
-=======
-ActiveRecord::Schema.define(version: 20181203030244) do
->>>>>>> ecfc9ca315945ed398729a610c279c9c49e4f92e
+ActiveRecord::Schema.define(version: 20181211232957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,17 +29,13 @@ ActiveRecord::Schema.define(version: 20181203030244) do
     t.datetime "updated_at", null: false
     t.string "ciudad"
     t.string "direccion"
-<<<<<<< HEAD
   end
 
-  create_table "hot_sales", force: :cascade do |t|
-    t.bigint "reservation_id"
+  create_table "hotsales", force: :cascade do |t|
+    t.float "precio"
+    t.integer "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["reservation_id"], name: "index_hot_sales_on_reservation_id"
-=======
-    t.index ["nombre"], name: "index_homes_on_nombre", unique: true
->>>>>>> ecfc9ca315945ed398729a610c279c9c49e4f92e
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -52,10 +44,10 @@ ActiveRecord::Schema.define(version: 20181203030244) do
     t.bigint "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.boolean "adjudicada", default: false
-=======
->>>>>>> ecfc9ca315945ed398729a610c279c9c49e4f92e
+    t.integer "id_adjudicado"
+    t.integer "subasta_id"
+    t.integer "hotsale_id"
     t.index ["home_id"], name: "index_reservations_on_home_id"
   end
 
@@ -79,22 +71,16 @@ ActiveRecord::Schema.define(version: 20181203030244) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.boolean "premium", default: false
-=======
->>>>>>> ecfc9ca315945ed398729a610c279c9c49e4f92e
     t.string "nombre"
     t.string "apellido"
     t.date "fechanac"
     t.string "numtarjeta"
     t.string "titulartarjeta"
     t.date "fechavenc"
-<<<<<<< HEAD
     t.integer "cvv"
     t.string "tipotarjeta"
-=======
-    t.integer "claveseguridad"
->>>>>>> ecfc9ca315945ed398729a610c279c9c49e4f92e
+    t.boolean "premium", default: false
+    t.integer "creditos"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,0 +1,12 @@
+<%= form_for @hotsale do |f| %>
+    <% @hotsale.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+	<div class="form-group">
+		<%= f.label :precio, 'Precio' %>
+		<%= f.text_field :precio, class: 'form-control', placeholder: 'Inserte el precio del Hot-Sale', required: true %>
+			<%= f.hidden_field :reservation_id,value: @res%>
+	</div>
+	<button class="btn btn-primary" type="submit">Guardar</button>
+
+<%end%>

@@ -6,6 +6,7 @@ class AddUserToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :numtarjeta, :string
     add_column :users, :titulartarjeta, :string
     add_column :users, :fechavenc, :date
-    add_column :users, :claveseguridad, :integer
+    add_column :users, :cvv, :integer
+    add_column :users, :tipotarjeta, :string
   end
 end

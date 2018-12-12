@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="p-3 mb-2 bg-dark text-white">
+      <h1>Listado de Hot-Sale</h1>
+  </div>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Reserva</th>
+        </tr>
+      </thead>
+
+      <% @hotsales.each do |hot| %>
+      <tbody>
+          <tr>
+            <td><%= hot.reservation.nombre%></td>
+            <td><%= link_to "Ver Hot-Sale",hotsale_path(hot),class: "btn btn-primary"%></td>
+          </tr>
+      </tbody>
+      <% end %>   
+    </table>
+</div>

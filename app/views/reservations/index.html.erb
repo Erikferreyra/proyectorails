@@ -1,22 +1,8 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          	<span class="sr-only">Toggle navigation</span>
-          	<span class="icon-bar"></span>
-          	<span class="icon-bar"></span>
-          	<span class="icon-bar"></span>
-   	      </button>
-          <a class="navbar-brand" href="#">Applicacion para admin</a>
-        </div>
-    </div>
-</nav>
-
 <section id="main"
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">
-					Listado de reservas no adjudicadas</h3>
+					Listado de reservas</h3>
 		</div>
 		<div class="panel-body">
 			<table class="table table-striped table-hover">
@@ -24,21 +10,45 @@
 					<th>Nombre</th>
 					<th>Fecha de inicio</th>
 				</tr>
-				<% @subastas.each do |sub| %>
-					<% if (sub.fechainicio + 3.day) < (Date.today) && sub.reservation_id.adjudicada == false%>
-					<tr>
-						<td><%= sub.reservation_id.nombre %></td>
-						<td><%= sub.reservation_id.fecha_ini %></td>
-						<td>
-							<% @hot_sales.each do |hot| %>
-							<%= form_for hot do |h| %>
-								<%= h.hidden_field :reservation_id, value: !hot.reservation_id %>
-    							<%= h.submit "Cambiar a #{user.premium ? "basico" : "premium"}" %>
+				<%res=Reservation.all%>
+				<%res.each do |re|%>
+				<%if re.subasta != nil %>
+					<% @subastas.each do |sub| %>
+						<% if (sub.fechainicio + 3.day) < (Date.today) %>
+							<% sub.reservations.each do |res|%>
+								<% if res.adjudicada == false %>
+									<tr>
+										<td><%= res.nombre %></td>
+										<td><%= res.fecha_ini %></td>
+										<% if res.hotsale == nil %>
+											<td><%= link_to "Crear Hot-Sale",new_hotsale_path(:id => res.id),class: "btn btn-primary"%></td>
+										<%else%>
+											<td>Ya cuenta con Hot-Sale</td>
+										<%end%>
+									</tr>
+								<%else%>
+									<tr>
+										<td><%= res.nombre %></td>
+										<td><%= res.fecha_ini %></td>
+										<td>Reserva adjudicada a <%=User.find(res.id_adjudicado).nombre%></td>
+									</tr>
+								<%end%>
 							<%end%>
-							<%end%>
-						</td>
-					</tr>
+						<%else%>
+					    	<% sub.reservations.each do |res|%>
+							<tr>
+								<td><%= res.nombre %></td>
+								<td><%= res.fecha_ini %></td>
+							</tr>
+							<% end %>
+						<%end%>
 					<%end%>
+				<%else%>
+					<tr>
+						<td><%= re.nombre %></td>
+						<td><%= re.fecha_ini %></td>
+					</tr>
+				<%end%>
 				<%end%>
 			</table>
 		</div>

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'hotsales/index'
+
+  get 'hotsales/new'
+
   devise_for :users
   resources :users, only: [:update]
+  resources :hotsales
+  resources :confirmation, only: [:index,:show]
   resources :reservations
   resources :subastas
   resources :homes
