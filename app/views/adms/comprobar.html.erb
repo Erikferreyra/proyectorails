@@ -1,0 +1,53 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Applicacion para admin</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="main"
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+Listado de usuarios</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped table-hover">
+				<tr>
+					<th>Nombre</th>
+					<th>Fecha reserva</th>
+          <th>Ciudad</th>
+          <th> Usuario ganador </th>
+				</tr>
+					<tr>
+
+            <% if @usu.creditos >= 1 %>
+                 <% @usu.creditos = @usu.creditos - 1 %>
+                 <% @usu.save%>
+               <td>
+                  <%= @subasta.titulo %>
+               </td>
+						<td>
+                <%= @reserva.fecha_ini %>
+						</td>
+            	<td>
+                <%= @home.ciudad %>
+              </td>
+						<td>
+                  <%= @usu.nombre %>
+						</td>
+					</tr>
+          <%else%>
+             <% redirect_to controler : 'adms' , action: 'completar_sub'  %>
+				 <%end%>,
+				</table>
+			</div>
+		</div>
+    </section>

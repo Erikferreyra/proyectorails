@@ -1,0 +1,32 @@
+
+<div class="container-fluid">
+  <div class="p-3 mb-2 bg-dark text-white">
+      <h1>Listado de subastas</h1>
+  </div>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Titulo</th>
+          <th scope="col">Fecha de reserva</th>
+          <th scope="col">Estado de la Subasta </th>
+        </tr>
+      </thead>
+
+      <% @subastas.each do |subasta| %>
+      <tbody>
+          <tr>
+          <% if ((subasta.fechainicio + 3.day) < Date.today  ) %>
+
+               <th scope="row"><%= subasta.titulo%></th>
+               <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
+              <td>
+                <%= "Subasta finalizada" %>
+            </td>
+            <td> <%= link_to "completar" , adm_comp_path(:id => subasta.id), class: "btn btn-primary"%> </td>
+           <%end%>
+          </tr>
+      </tbody>
+      <% end %>
+    </table>
+</div>

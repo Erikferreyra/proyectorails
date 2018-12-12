@@ -1,43 +1,18 @@
 class AdmsController < ApplicationController
-  def edit
-    @home=Home.find(params[:id])  
-  end
-  def update
-    @home=Home.find(params[:id])
-     if @home.update(params.require(:home).permit(:nombre))
-      redirect_to adms_path
-     else
-    render :edit
-  end 
-  end
-  def new 
-    @home=Home.new
-  end
-  def create
-  @home=Home.new(params.require(:home).permit(:nombre,:ubicacion,:disponibilidad))
-  if @home.save
-    redirect_to adms_path
-  else
-    render :new
-  end
-  end
-  
-  def default
-    
-  end
-  
   def index
-     @homes=Home.all
+      @users=User.all
   end
 
-  def show
+  def completar_sub
+    @subastas = Subasta.all
   end
-  def destroy
-  @home=Home.find(params[:id])
-    if @home.destroy
-    redirect_to adms_path
-  else
-    redirect_to adms_path
-  end 
- end
+
+  def comprobar
+     @ids = params[:id]
+     @subasta = Subasta.find(@ids)
+     @usu = User.find(@subasta.usuario_id)
+     @reserva = Reservation.find(@subasta.reservation_id)
+     @home = Home.find(@reserva.home_id)
+  end
+
 end

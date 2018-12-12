@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+  get 'pujas/index'
+
   get 'search/create'
   get 'search/index'
+  get 'adm/comp_sub', to: 'adms#completar_sub'
+  get 'adm/comp', to: 'adms#comprobar'
 
   devise_for :users
   resources :reservations
   resources :subastas
+
   resources :homes
-  get 'adm',to: 'adm#index'
+  get 'adm',to: 'adms#index'
   root 'main#index'
   #devise_scope :user do
    #   root to: "devise/sessions#new"

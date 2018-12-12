@@ -1,6 +1,6 @@
 
 <%= form_tag search_index_path , method: :get  do %>
-  <p aling= "center" <%= text_field_tag :search, params[:search] , placeholder: "Que estas buscando" %>
+  <%= text_field_tag :search, params[:search] , placeholder: "Que estas buscando" %>
   <%= submit_tag "buscar" ,class: "btn btn-primary" %>
   <br></br>
   <%= label_tag :Fecha_de_inicio %>
@@ -51,11 +51,14 @@ Listado de reservas</h3>
 						<%= r.nombre %>
 						</td>
             <td> <% if r.adjudicada == false %>
+                  <% user=current_user%>
                   <% @subastas.each do |sub| %>
                        <% if sub.reservation_id == r.id %>
                            <% if sub.fechainicio > Date.today %>
                                 <%= "No iniciada" %>
-                               <-- la subasta no inicio y si soy premium puedo adjudicarmela -->
+                                <%if user.nombre == "Erik"%>
+                                    <td><%= link_to "Adjudicarme reserva",class: "btn btn-primary"%>
+                                <%end%>
                           <%else%>
                               <% if ((sub.fechainicio + 3.day) < Date.today  ) %>
                                     <%= "Subasta finalizada" %>
