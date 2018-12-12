@@ -11,6 +11,15 @@
               <%= date_field_tag :f_fin, params[:f_fin] , start_year: Date.today.year , :default => nil %>
             <% end %>
 
+            <% mostrar = true %>
+            <% if @fi!=nil && @ff!=nil%>
+            <%x = @fi + 2.months%>
+            <%if @ff > x %>
+              <%= "El rango maximo de la fecha de búsqueda es de 2 meses." %>
+              <% mostrar = false %>
+            <%end%>
+            <%end%>
+
             <div class="container-fluid">
             <div class="p-3 mb-2 bg-primary text-white">
                 <h1> Listado de subastas </h1>
@@ -30,7 +39,7 @@
                   <% fechafin = subasta.fechainicio %>
                   <% fechafin += 3 %>
                   <% if @fi!=nil && @ff!=nil%>
-                      <% if (Date.today <= fechafin) && (!Reservation.find(subasta.reservation_id).try(:adjudicada?)) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff%>
+                      <% if (Date.today <= fechafin) && (!Reservation.find(subasta.reservation_id).try(:adjudicada?)) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff && mostrar %>
                               <tbody>
                                   <tr>
                                     <th scope="row"><%= subasta.titulo %></th>
@@ -90,6 +99,15 @@
                 <%= date_field_tag :f_fin, params[:f_fin] , start_year: Date.today.year , :default => nil %>
               <% end %>
 
+              <% mostrar = true %>
+              <% if @fi!=nil && @ff!=nil%>
+              <%x = @fi + 2.months%>
+              <%if @ff > x %>
+                <%= "asdasd" %>
+                <% mostrar = false %>
+              <%end%>
+              <%end%>
+
               <div class="container-fluid">
               <div class="p-3 mb-2 bg-primary text-white">
                   <h1> Listado de subastas </h1>
@@ -109,7 +127,7 @@
                     <% fechafin = subasta.fechainicio %>
                     <% fechafin += 3 %>
                     <% if @fi!=nil && @ff!=nil %>
-                          <% if (Date.today <= fechafin) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff%>
+                          <% if (Date.today <= fechafin) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff && mostrar   %>
                               <tbody>
                                   <tr>
                                     <th scope="row"><%= subasta.titulo %></th>
