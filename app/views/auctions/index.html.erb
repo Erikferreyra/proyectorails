@@ -15,7 +15,7 @@
             <% if @fi!=nil && @ff!=nil%>
             <%x = @fi + 2.months%>
             <%if @ff > x %>
-              <%= "El rango maximo de la fecha de búsqueda es de 2 meses." %>
+              <%= "El rango maximo de la fecha de búsqueda es de 2 meses. " %>
               <% mostrar = false %>
             <%end%>
             <%end%>
@@ -38,12 +38,13 @@
                 <% @subastas.each do |subasta| %>
                   <% fechafin = subasta.fechainicio %>
                   <% fechafin += 3 %>
-                  <% if @fi!=nil && @ff!=nil%>
-                      <% if (Date.today <= fechafin) && (!Reservation.find(subasta.reservation_id).try(:adjudicada?)) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff && mostrar %>
+                  <% if @fi!=nil && @ff!=nil && @h!=nil%>
+                      <% @h.each do |home| %>
+                      <% if (Date.today <= fechafin) && (!Reservation.find(subasta.reservation_id).try(:adjudicada?)) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff && mostrar && home.nombre==Home.find(Reservation.find(subasta.reservation_id).home_id).nombre%>
                               <tbody>
                                   <tr>
-                                    <th scope="row"><%= subasta.titulo %></th>
                                     <% id_home = Reservation.find(subasta.reservation_id).home_id %>
+                                    <th scope="row"><%= Home.find(id_home).nombre %></th>
                                     <th><%= Home.find(id_home).ciudad %></th>
                                     <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
 
@@ -60,12 +61,13 @@
                                   </tr>
                               </tbody>
                       <%end%>
+                      <%end%>
                   <%else%>
                       <% if (Date.today <= fechafin) && (!Reservation.find(subasta.reservation_id).try(:adjudicada?)) %>
                       <tbody>
                           <tr>
-                            <th scope="row"><%= subasta.titulo %></th>
                             <% id_home = Reservation.find(subasta.reservation_id).home_id %>
+                            <th scope="row"><%= Home.find(id_home).nombre %></th>
                             <th><%= Home.find(id_home).ciudad %></th>
                             <td><%= Reservation.find(subasta.reservation_id).fecha_ini %></td>
 
@@ -126,8 +128,9 @@
                   <% @subastas.each do |subasta| %>
                     <% fechafin = subasta.fechainicio %>
                     <% fechafin += 3 %>
-                    <% if @fi!=nil && @ff!=nil %>
-                          <% if (Date.today <= fechafin) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff && mostrar   %>
+                    <% if @fi!=nil && @ff!=nil && @h!=nil%>
+                          <% @h.each do |home| %>
+                          <% if (Date.today <= fechafin) && Reservation.find(subasta.reservation_id).fecha_ini >= @fi && Reservation.find(subasta.reservation_id).fecha_ini <= @ff && mostrar  && home.nombre==Home.find(Reservation.find(subasta.reservation_id).home_id).nombre%>
                               <tbody>
                                   <tr>
                                     <th scope="row"><%= subasta.titulo %></th>
@@ -147,6 +150,7 @@
                                     </td>
                                   </tr>
                               </tbody>
+                          <%end%>
                           <%end%>
                     <%else%>
                       <% if (Date.today <= fechafin) %>

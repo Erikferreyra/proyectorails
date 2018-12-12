@@ -2,7 +2,6 @@ class AuctionsController < ApplicationController
     def index
     	 @subastas=Auction.order(fechainicio: :desc)
 
-
        @h = Home.where(["nombre LIKE ?", "%#{params[:search]}%"])
        if params[:f_ini] != nil
          @fi = params[:f_ini].to_date
