@@ -1,5 +1,5 @@
 class Home < ApplicationRecord
- has_many :reservations
+ belongs_to :reservations, required: false
  validates :nombre, :ciudad, :direccion, :canthabitacion, presence: true
  validates :nombre, uniqueness: true
 end
